@@ -1,0 +1,40 @@
+---
+import H2 from "../ui/H2.astro";
+import Tech from "./Tech.astro";
+const { headline } = Astro.props as { headline: string };
+
+const techstack: { name: string; img: string }[] = [
+    { name: "HTML", img: "/html-logo.png" },
+    { name: "CSS", img: "/css-logo.png" },
+    { name: "JavaScript", img: "/javascript-logo.png" },
+    { name: "PHP", img: "/php-logo.png" },
+    { name: "Typescript", img: "/ts-logo.png" },
+    { name: "React", img: "/css-logo.png" },
+    { name: "Next.js", img: "/css-logo.png" },
+    { name: "three.js", img: "/css-logo.png" },
+    { name: "Twig", img: "/css-logo.png" },
+    { name: "SCSS", img: "/css-logo.png" },
+    { name: "SQL", img: "/css-logo.png" },
+    { name: "Wordpress", img: "/css-logo.png" },
+    { name: "Astro", img: "/css-logo.png" },
+    { name: "grunt", img: "/css-logo.png" },
+    { name: "vite", img: "/css-logo.png" },
+    { name: "npm", img: "/css-logo.png" },
+    { name: "git", img: "/css-logo.png" },
+];
+---
+
+<section class="mb-10">
+    <div class="max-w-5xl mx-auto px-4">
+        <H2>{headline}</H2>
+        <ul class="flex justify-start gap-x-4 gap-y-4 gap flex-wrap">
+            {
+                techstack.map((tech) => (
+                    <li>
+                        <Tech name={tech.name} />
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,21 @@
+---
+import H2 from "../ui/H2.astro";
+
+type VitaProps = {
+    headline: string;
+    vita: { title: string; date: string; description: string }[];
+};
+
+const { headline, vita } = Astro.props as VitaProps;
+---
+
+<H2>{headline}</H2>
+{
+    vita.map((item) => (
+        <>
+            <h3 class="font-semibold text-xl">{item.title}</h3>
+            {item.date ? <p>{item.date}</p> : ""}
+            <p class="mb-6">{item.description}</p>
+        </>
+    ))
+}

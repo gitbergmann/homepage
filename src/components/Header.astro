@@ -1,0 +1,22 @@
+---
+import { Sun, Moon } from "lucide-astro";
+const { link, flag, alt } = Astro.props as { link: string; flag: string; alt: string; };
+---
+
+<header
+    class="mb-8 w-full flex justify-end items-center px-4 sm:px-6 py-3 max-w-5xl my-0 mx-auto"
+>
+    <div class="flex justify-center gap-4">
+        <div id="theme-toggle" class="cursor-pointer">
+            <Sun class="icon-light hidden dark:block" />
+            <Moon class="icon-dark block dark:hidden" />
+        </div>
+        <a href={link} class="pt-0.5">
+            <img
+                alt={alt}
+                class="w-9"
+                src={`${flag}.svg`}
+            />
+        </a>
+    </div>
+</header>

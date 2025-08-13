@@ -1,0 +1,38 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+const { pageTitle, link, flag, alt } = Astro.props as {
+    pageTitle: string;
+    link: string;
+    flag: string;
+    alt: string;
+};
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle}</title>
+    </head>
+    <body
+        class="antialiased bg-gray-50 text-gray-950 dark:bg-gray-950 dark:text-gray-50"
+    >
+        <!-- <div class="px-4 sm:px-6 py-3 max-w-5xl my-0 mx-auto"> -->
+        <div class="">
+            <Header link={link} flag={flag} alt={alt} />
+            <main>
+                <slot />
+            </main>
+            <Footer />
+        </div>
+        <script>
+            import "../scripts/dark-mode.ts";
+            import "../scripts/cube.ts";
+        </script>
+    </body>
+</html>

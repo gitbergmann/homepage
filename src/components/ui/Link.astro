@@ -1,0 +1,12 @@
+---
+import { ExternalLink } from "lucide-astro";
+const { name, url } = Astro.props as { name: string; url: string; };
+---
+
+<a
+    href={url}
+    class="flex justify-start items-center gap-2 text-blue-400 dark:text-cyan-600"
+    target="_blank"
+    >{name}
+    <ExternalLink class="inline" />
+</a>

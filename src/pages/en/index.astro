@@ -1,0 +1,148 @@
+---
+import RootLayout from "../../layout/RootLayout.astro";
+import Section from "../../components/ui/Section.astro";
+import H2 from "../../components/ui/H2.astro";
+import Intro from "../../components/content/Intro.astro";
+import Techstack from "../../components/content/Techstack.astro";
+import PortfolioItem from "../../components/content/PortfolioItem.astro";
+import Vita from "../../components/content/Vita.astro";
+
+const intro = {
+    text: "Webdeveloper & Software-Engineer",
+    text2: "For over 8 years I've been making professional websites, passionate and smart, light-weight and responsive.",
+};
+
+const techstack = {
+    headline: "My Techstack",
+};
+
+const rubiks = {
+    name: "Working Rubik's Cube",
+    url: "https://rubiks.lennartbergmann.com",
+    text: "The cube can be scrambled and solved. The biggest challenge was figuring out which face should turn when, and then calculating the new position and rotation of each small cube.",
+    text2: "I chose React for this project because it works so well with three.js through React Three Fiber. Since I didn't need good SEO I decided against Next.js, so that I also wouldn't need a Node.js server.",
+    techstack: ["React", "React Three Fiber", "Typescript", "Tailwind"],
+    github: "https://github.com/gitbergmann/rubiks/"
+};
+
+const bhs = {
+    name: "Berry Hunt Survivors",
+    url: "https://store.steampowered.com/app/2377320/Berry_Hunt_Survivors/",
+    text: "Berry Hunt Survivors is a PC game, which I developed together with a friend. It's an action roguelike where you play as Grandma or Grandpa and fight evil monsters.",
+    text2: "Except for the soundtrack we did everything ourselves, which was very challenging as we had only minimal experience with C# and Unity before this project. There were some frustrating moments but overall it was very fun.",
+    techstack: ["C#", "Unity"],
+};
+
+const lb = {
+    name: "lennartbergmann.com",
+    url: "/",
+    text: "Mostly I just wanted this site to be simple. A static site makes the most sense, and Astro also offers JSX-like components, which I really like working with, without the React overhead.",
+    techstack: ["Astro", "three.js", "Typescript", "Tailwind"],
+    github: "https://github.com/gitbergmann/homepage"
+};
+
+const vita = {
+    headline: "Vita",
+    vita: [
+        {
+            title: "Fullstack Webdeveloper",
+            date: "09/2017 - Now",
+            description: "Moinbits GbR",
+        },
+        {
+            title: "Webdeveloper PHP",
+            date: "09/2016 - 08/2017",
+            description: "Kreuzfahrtberater",
+        },
+        {
+            title: "Webdeveloper PHP",
+            date: "03/2016 - 08/2016",
+            description: "Ausflugsbutler",
+        },
+        {
+            title: "Bachelor of Science",
+            date: "02/2021",
+            description: "Software-System-Engineering, University of Hamburg",
+        },
+        {
+            title: "Language skills",
+            description: "German (native), English (fluent)",
+        },
+    ],
+};
+---
+
+<RootLayout
+    pageTitle="Lennart Bergmann"
+    link="/"
+    flag="../german-flag"
+    alt="Zu deutscher Sprache wechseln"
+>
+    <div class="md:flex gap-8 max-w-5xl my-0 mx-auto md:my-30">
+        <Intro text={intro.text} text2={intro.text2} />
+
+        <Techstack headline={techstack.headline} />
+    </div>
+
+    <Section>
+        <H2>Portfolio</H2>
+
+        <div class="md:flex flex-row-reverse justify-between">
+            <div class="mb-6 md:mb-0 md:w-1/2">
+                <div id="cube" class="flex justify-center"></div>
+                <p
+                    class="md:max-w-1/2 mx-auto text-center text-gray-500 dark:text-gray-400"
+                >
+                    This is just a cube. Drag to rotate, scroll/pinch to zoom.
+                </p>
+            </div>
+            <PortfolioItem
+                name={rubiks.name}
+                url={rubiks.url}
+                text={rubiks.text}
+                text2={rubiks.text2}
+                techstack={rubiks.techstack}
+                github={rubiks.github}
+            />
+        </div>
+    </Section>
+
+    <Section>
+        <div class="md:flex justify-between">
+            <div
+                class="mb-4 -mt-8 -ml-1 md:w-1/2 flex items-center justify-center"
+            >
+                <video
+                    width="381"
+                    height="256"
+                    class="max-h-64"
+                    src="/bhs.webm"
+                    #
+                    autoplay
+                    loop
+                    muted></video>
+            </div>
+            <PortfolioItem
+                name={bhs.name}
+                url={bhs.url}
+                text={bhs.text}
+                text2={bhs.text2}
+                techstack={bhs.techstack}
+            />
+        </div>
+    </Section>
+
+    <Section>
+        <PortfolioItem
+            name={lb.name}
+            url={lb.url}
+            text={lb.text}
+            techstack={lb.techstack}
+            github={lb.github}
+        />
+    </Section>
+
+    <Section>
+        <Vita headline={vita.headline} vita={vita.vita} />
+    </Section>
+</RootLayout>
