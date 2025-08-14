@@ -20,7 +20,7 @@ const rubiks = {
     name: "Funktionierender Rubik's Cube",
     url: "https://rubiks.lennartbergmann.com",
     text: "Der Würfel lässt sich scramblen und lösen. Die große Schwierigkeit war es herauszufinden welche Seite sich wann drehen muss, und dann für jeden kleinen Würfel die neue Position und Rotation zu berechnen.",
-    text2: "React habe ich hier deshalb gewählt, weil es durch React Three Fiber sehr angenehm mit three.js zusammenspielt. Next.js fand ich bei diesem Projekt unnötig, da mich SEO hier nicht interessiert und ich so keinen Node Server benötige.",
+    text2: "React habe ich hier deshalb gewählt, weil es durch React Three Fiber sehr angenehm mit three.js zusammenspielt. ",
     techstack: ["React", "React Three Fiber", "Typescript", "Tailwind"],
     github: "https://github.com/gitbergmann/rubiks/"
 };
@@ -36,7 +36,7 @@ const bhs = {
 const lb = {
     name: "lennartbergmann.com",
     url: "/",
-    text: "Diese Seite wollte ich vorallem simpel halten. Eine statische Seite macht hier einfach Sinn, und Astro bietet dazu auch noch die JSX-ähnlichen Komponenten, die ich sehr mag, ohne den ganzen React overhead.",
+    text: "Diese Seite wollte ich vorallem simpel halten. Eine statische Seite ergibt hier einfach Sinn, und Astro bietet dazu auch noch die JSX-ähnlichen Komponenten, die ich sehr mag, ohne den ganzen React overhead.",
     techstack: ["Astro", "three.js", "Typescript", "Tailwind"],
     github: "https://github.com/gitbergmann/homepage"
 };
@@ -116,9 +116,7 @@ const vita = {
                 <video
                     width="381"
                     height="256"
-                    class="max-h-64"
                     src="/bhs.webm"
-                    #
                     autoplay
                     loop
                     muted></video>
