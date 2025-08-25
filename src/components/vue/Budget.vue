@@ -93,7 +93,7 @@ function addFloats(a: number, b: number): number {
                 <span class="mr-2 capitalize">{{ title }}</span>
                 <span>{{ amount.toFixed(2) }}</span>€
             </div>
-            <button @click="showCreatePopup = true" class="text-white cursor-pointer hover:text-green-300">
+            <button @click="showCreatePopup = true" class="dark:text-white cursor-pointer hover:text-green-300">
                 <CirclePlus />
             </button>
         </div>

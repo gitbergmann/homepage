@@ -69,7 +69,7 @@ function handleSave(plusOne: boolean = false): void {
     <div class="fixed top-0 left-0 right-0 bottom-0 h-screen w-full">
         <div class="absolute top-0 left-0 right-0 bottom-0 h-screen w-full bg-black opacity-40 z-0"></div>
         <div
-            class="absolute top-1/2 left-1/2 -translate-1/2 z-10 w-full max-w-128 bg-black p-4 rounded border border-gray-700">
+            class="absolute top-1/2 left-1/2 -translate-1/2 z-10 w-full max-w-128 bg-white dark:bg-black p-4 rounded border border-gray-700">
             <form>
                 <Input :label="translations[lang].date" v-model="dateString" type="date" />
                 <Input :label="translations[lang].description" v-model.trim="description" :placeholder="translations[lang].descriptionPlaceholder" type="text" />
