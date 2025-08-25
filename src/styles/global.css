@@ -1,3 +1,4 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant touch (@media (hover: none) and (pointer: coarse));

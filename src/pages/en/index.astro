@@ -6,6 +6,7 @@ import Intro from "../../components/content/Intro.astro";
 import Techstack from "../../components/content/Techstack.astro";
 import PortfolioItem from "../../components/content/PortfolioItem.astro";
 import Vita from "../../components/content/Vita.astro";
+import Budget from "../../components/vue/Budget.vue";
 
 const intro = {
     text: "Webdeveloper & Software-Engineer",
@@ -22,7 +23,7 @@ const rubiks = {
     text: "The cube can be scrambled and solved. The biggest challenge was figuring out which face should turn when, and then calculating the new position and rotation of each small cube.",
     text2: "I chose React for this project because it works so well with three.js through React Three Fiber.",
     techstack: ["React", "React Three Fiber", "Typescript", "Tailwind"],
-    github: "https://github.com/gitbergmann/rubiks/"
+    github: "https://github.com/gitbergmann/rubiks/",
 };
 
 const bhs = {
@@ -33,12 +34,20 @@ const bhs = {
     techstack: ["C#", "Unity"],
 };
 
+const budget = {
+    name: "Budget SPA",
+    url: "https://budget.lennartbergmann.com",
+    text: "A small website to keep track of your budget. I mainly chose Vue.js to gain some experience with it, but of course it lends itself to a simple SPA like this.",
+    techstack: ["Vue.js", "Typescript", "Tailwind"],
+    github: "https://github.com/gitbergmann/budget",
+};
+
 const lb = {
     name: "lennartbergmann.com",
     url: "/",
-    text: "Mostly I just wanted this site to be simple. A static site makes the most sense, and Astro also offers JSX-like components, which I really like working with, without the React overhead.",
+    text: "First and foremost I wanted this site to be simple. A static site makes the most sense, and I chose Astro for the implementation because of its simple layouting and easy integration of interactive elements.",
     techstack: ["Astro", "three.js", "Typescript", "Tailwind"],
-    github: "https://github.com/gitbergmann/homepage"
+    github: "https://github.com/gitbergmann/homepage",
 };
 
 const vita = {
@@ -80,15 +89,17 @@ const vita = {
     lang="en"
     metaDescription="For over 8 years I've been making professional websites, passionate and smart, light-weight and responsive."
 >
-    <div class="md:flex gap-8 max-w-5xl my-0 mx-auto md:my-30">
+    <div class="md:flex gap-8 max-w-5xl px-4 sm:px-6 my-0 mx-auto md:my-30">
         <Intro text={intro.text} text2={intro.text2} />
 
         <Techstack headline={techstack.headline} />
     </div>
 
-    <Section>
+    <div class="max-w-5xl my-0 mx-auto px-4 sm:px-6">
         <H2>Portfolio</H2>
+    </div>
 
+    <Section>
         <div class="md:flex flex-row-reverse justify-between">
             <div class="mb-6 md:mb-0 md:w-1/2">
                 <div id="cube" class="flex justify-center"></div>
@@ -135,13 +146,42 @@ const vita = {
     </Section>
 
     <Section>
-        <PortfolioItem
-            name={lb.name}
-            url={lb.url}
-            text={lb.text}
-            techstack={lb.techstack}
-            github={lb.github}
-        />
+        <div class="md:flex flex-row-reverse items-start gap-4 justify-between">
+            <div class="mb-4 md:w-1/2">
+                <Budget
+                    title="Spending"
+                    rent="Rent"
+                    electricity="Electricity"
+                    groceries="Groceries"
+                    remove="Remove"
+                    client:load
+                />
+                <p
+                    class="md:max-w-1/2 mx-auto text-center text-gray-500 dark:text-gray-400"
+                >
+                    An interactive example.
+                </p>
+            </div>
+            <PortfolioItem
+                name={budget.name}
+                url={budget.url}
+                text={budget.text}
+                techstack={budget.techstack}
+                github={budget.github}
+            />
+        </div>
+    </Section>
+
+    <Section>
+        <div class="flex flex-row-reverse">
+            <PortfolioItem
+                name={lb.name}
+                url={lb.url}
+                text={lb.text}
+                techstack={lb.techstack}
+                github={lb.github}
+            />
+        </div>
     </Section>
 
     <Section>
